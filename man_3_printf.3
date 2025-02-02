@@ -1,0 +1,62 @@
+.TH man_3_printf 3 "Feb 02, 2025" "Custom Library" "Library Functions Manual"
+.SH NAME
+_printf - A custom implementation of the printf function.
+
+.SH SYNOPSIS
+.nf
+#include "main.h"
+
+int _printf(const char *format, ...);
+.fi
+
+.SH DESCRIPTION
+The \fB_printf\fR function prints formatted output to the standard output (stdout), similar to the standard \fBprintf(3)\fR function.
+It processes a format string and a variable number of arguments, supporting a subset of standard format specifiers.
+
+Supported format specifiers:
+.TP
+\fB%c\fR
+Prints a single character.
+.TP
+\fB%s\fR
+Prints a string.
+.TP
+\fB%d, %i\fR
+Prints a signed integer in decimal format.
+.TP
+\fB%u\fR
+Prints an unsigned integer.
+.TP
+\fB%o\fR
+Prints an unsigned integer in octal format.
+.TP
+\fB%x, %X\fR
+Prints an unsigned integer in hexadecimal format (lowercase or uppercase).
+.TP
+\fB%%\fR
+Prints a percent sign.
+
+.SH RETURN VALUE
+Returns the number of characters printed (excluding the null byte used to end output to strings).
+Returns -1 if an error occurs.
+
+.SH ERRORS
+.TP
+-1
+Returned when the format string is null or contains an invalid format specifier.
+
+.SH EXAMPLES
+Example usage of \fB_printf\fR:
+.nf
+#include "main.h"
+
+int main() {
+int count = _printf("Hello, %s! The number is %d\n", "world", 42);
+_printf("Printed %d characters.\n", count);
+return 0;
+}
+.fi
+
+.SH AUTHOR
+Kyrillos Adel kyrillosadelfahim@gmail.com
+
